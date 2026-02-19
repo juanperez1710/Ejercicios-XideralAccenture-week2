@@ -1,4 +1,8 @@
 package com.Ejercicio1;
 
-public class InvalidAmountException {
+public class InvalidAmountException extends RuntimeException {
+    // TODO: constructor que reciba mensaje
+    public InvalidAmountException(String message) {
+        super(___);
+    }
 }
