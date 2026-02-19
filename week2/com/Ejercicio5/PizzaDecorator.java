@@ -1,4 +1,6 @@
 package com.Ejercicio5;
 
-public class PizzaDecorator {
+abstract class PizzaDecorator implements PizzaOrder {
+    protected final PizzaOrder wrapped;
+    PizzaDecorator(PizzaOrder wrapped) { this.wrapped = wrapped; }
 }

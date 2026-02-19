@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59196141-fb48-47e6-b268-d06c0af03377" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio1/AccountLockedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio1/InsufficientBalanceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio1/InvalidAmountException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio1/TransactionLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Ejercicios-XideralAccenture-week2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ejercicios-XideralAccenture-week2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio2/SimpleStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio3/TicketSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio4/ProductCatalog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/Crust.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/ExtraCheeseDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/GiftBoxDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/Pizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/PizzaDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/PizzaOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/PizzaShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week2/com/Ejercicio5/Size.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -50,6 +58,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.PizzaShop.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",

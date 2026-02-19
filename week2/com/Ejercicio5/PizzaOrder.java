@@ -1,4 +1,6 @@
 package com.Ejercicio5;
 
-public interface PizzaOrder {
+interface PizzaOrder {
+    String getDescription();
+    double getPrice();
 }
