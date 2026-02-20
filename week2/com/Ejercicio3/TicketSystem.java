@@ -13,8 +13,8 @@ enum Priority {
 
     // TODO: constructor
     Priority(int level, int responseTimeHours) {
-        this.level = ___;
-        this.responseTimeHours = ___;
+        this.level = level;
+        this.responseTimeHours = responseTimeHours;
     }
 
     public int getLevel() { return level; }
@@ -23,7 +23,7 @@ enum Priority {
     public String getLabel() {
         // TODO: retornar "NOMBRE (Nivel X, Respuesta: Yh)"
         return String.format("%s (Nivel %d, Respuesta: %dh)",
-                ___, ___, ___);
+                this.name(),level,responseTimeHours);
     }
 }
 
@@ -37,10 +37,10 @@ enum TicketStatus {
         // RESOLVED -> CLOSED o IN_PROGRESS (reabrir)
         // CLOSED -> ninguno
         return switch (this) {
-            case OPEN -> ___;
-            case IN_PROGRESS -> ___;
-            case RESOLVED -> ___;
-            case CLOSED -> ___;
+            case OPEN -> target == IN_PROGRESS;
+            case IN_PROGRESS -> target == RESOLVED || target== OPEN;
+            case RESOLVED -> target== CLOSED || target==IN_PROGRESS;
+            case CLOSED -> false;
         };
     }
 }
@@ -101,6 +101,9 @@ public class TicketSystem {
         System.out.println("\n=== Dashboard (EnumMap) ===");
         EnumMap<TicketStatus, Integer> conteo = new EnumMap<>(TicketStatus.class);
         for (TicketStatus s : TicketStatus.values()) conteo.put(s, 0);
+        for (Ticket t : tickets){
+            conteo.put(t.getStatus(),conteo.get(t.getStatus())+1);
+        }
         // TODO: contar tickets por status
 
         conteo.forEach((status, count) ->
@@ -108,7 +111,10 @@ public class TicketSystem {
 
         // TODO: EnumSet para filtrar tickets urgentes (HIGH + CRITICAL)
         System.out.println("\n=== Tickets Urgentes (EnumSet) ===");
-        EnumSet<Priority> urgentes = EnumSet.of(___);
+        EnumSet<Priority> urgentes = EnumSet.of(Priority.HIGH,Priority.CRITICAL);
         // TODO: filtrar e imprimir tickets con prioridad urgente
+        tickets.stream()
+                .filter(t -> urgentes.contains(t.getPriority()))
+                .forEach(System.out::println);
     }
 }

@@ -12,7 +12,7 @@ public class TransactionLog implements AutoCloseable {
     @Override
     public void close() {
         // TODO: marcar como cerrado e imprimir mensaje
-        open = ___;
+        open = false;
         System.out.println("[LOG] TransactionLog cerrado.");
     }
 }

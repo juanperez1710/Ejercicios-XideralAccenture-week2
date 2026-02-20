@@ -5,9 +5,9 @@ public class InsufficientBalanceException extends Exception {
 
     // TODO: constructor con mensaje y deficit
     public InsufficientBalanceException(String message, double deficit) {
-        super(___);
-        this.deficit = ___;
+        super(message);
+        this.deficit = deficit;
     }
 
-    public double getDeficit() { return ___; }
+    public double getDeficit() { return deficit; }
 }

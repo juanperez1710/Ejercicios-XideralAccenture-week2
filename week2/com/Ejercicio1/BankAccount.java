@@ -13,18 +13,35 @@ public class BankAccount {
     public void deposit(double amount) {
         // TODO: si amount <= 0 lanzar InvalidAmountException
         // TODO: sumar al balance
+        if(amount <=0) throw new InvalidAmountException("Monto inválido: "+amount );
+        balance+=amount;
+
     }
 
     public void withdraw(double amount) throws InsufficientBalanceException {
         if (amount <= 0) throw new InvalidAmountException("Monto invalido: " + amount);
         // TODO: si amount > balance lanzar InsufficientBalanceException con deficit
         // TODO: restar del balance
+        if(amount> balance){
+            double deficit=amount-balance;
+            throw new InsufficientBalanceException("Fondos insuficientes", deficit);
+        }
+        balance-=amount;
     }
 
     public void transfer(BankAccount target, double amount)
             throws InsufficientBalanceException {
         // TODO: usar try-with-resources con TransactionLog
         //       dentro: withdraw, target.deposit, log ambas operaciones
+        try(TransactionLog log= new TransactionLog()){
+            this.withdraw(amount);
+            target.deposit(amount);
+            log.log("Transferencia de $"+ amount + " realizada.");
+            log.log("Saldo origen: $"+this.balance+" , sando destino: $"+target.balance);
+        }
+
+
+
     }
 
     public void lock() { this.locked = true; }
