@@ -2,7 +2,7 @@
 
 # Alumno: Juan Pérez Marcelo
 
-Este repositorio contiene la colección de **ejercicios prácticos** de la semana 1 para la Academia Java de Xideral-Accenture
+Este repositorio contiene la colección de **ejercicios prácticos** de la semana 2 para la Academia Java de Xideral-Accenture
 
 ## Contenido
 
