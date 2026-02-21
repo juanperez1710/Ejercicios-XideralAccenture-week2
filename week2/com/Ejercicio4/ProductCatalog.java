@@ -18,7 +18,7 @@ class ProductPipeline {
 
     public ProductPipeline where(Predicate<Product> predicate) {
         // TODO: encadenar con .and()
-        this.filter = ___;
+        this.filter = this.filter.and(predicate);
         return this;
     }
 
@@ -30,8 +30,8 @@ class ProductPipeline {
     public void forEach(List<Product> products, Consumer<String> action) {
         // TODO: filtrar productos, aplicar transformacion, ejecutar accion
         for (Product p : products) {
-            if (___) {
-                action.accept(___);
+            if (filter.test(p)) {
+                action.accept(transform.apply(p));
             }
         }
     }
@@ -40,7 +40,7 @@ class ProductPipeline {
         // TODO: contar productos que pasan el filtro
         long total = 0;
         for (Product p : products) {
-            if (___) total++;
+            if (filter.test(p)) total++;
         }
         return total;
     }
@@ -64,7 +64,7 @@ public class ProductCatalog {
         // TODO: usar method reference System.out::println
         catalogo.stream()
                 .map(Product::toDisplayString)
-                .forEach(___);
+                .forEach(System.out::println);
 
         System.out.println("\n=== Pipeline: Electronica en stock, precio > $50 ===");
         // TODO: crear pipeline con 3 condiciones encadenadas
@@ -72,14 +72,14 @@ public class ProductCatalog {
                 .where(Product::isAvailable)          // method reference
                 .where(p -> p.category().equals("Electronica"))
                 .where(p -> p.price() > 50)
-                .forEach(catalogo, ___);              // TODO: method reference
+                .forEach(catalogo, System.out::println);              // TODO: method reference
 
         System.out.println("\n=== Pipeline: Disponibles, precio < $100 ===");
         ProductPipeline pipeline = new ProductPipeline()
                 .where(Product::isAvailable)
                 .where(p -> p.price() < 100)
                 .transform(p -> "  * " + p.name().toUpperCase() + " - $" + p.price());
-        pipeline.forEach(catalogo, ___);          // TODO: method reference
+        pipeline.forEach(catalogo, System.out::println);          // TODO: method reference
 
         System.out.println("\nTotal disponibles: "
                 + new ProductPipeline()
